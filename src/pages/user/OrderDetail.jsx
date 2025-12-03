@@ -105,8 +105,8 @@ export default function OrderDetail(){
                             <tr key={i}>
                                 <td>{item.idProducto}</td> 
                                 <td>{item.cantidad}</td>
-                                <td>S/ {item.precioUnit?.toFixed(2)}</td>
-                                <td>S/ {(item.cantidad * item.precioUnit)?.toFixed(2) || '0.00'}</td>
+                                <td>S/ {parseFloat(item.precioUnit)?.toFixed(2)}</td> 
+                                <td>S/ {(parseFloat(item.cantidad) * parseFloat(item.precioUnit))?.toFixed(2) || '0.00'}</td>
                             </tr>
                         ))}
                     </tbody>
@@ -127,7 +127,10 @@ export default function OrderDetail(){
                         <p>Subtotal: S/ {infoOrden.subTotal?.toFixed(2) || '0.00'}</p>
                         <p>Envío: S/ 0.00</p>
                         <hr />
-                        <p><b>Total Final: S/ {infoOrden.total?.toFixed(2) || '0.00'}</b></p>
+                        <p><b>Total Final: <b>
+
+    S/ {parseFloat(infoOrden.total)?.toFixed(2) || '0.00'} 
+</b></b></p>
                     </div>
                 </div>
 
