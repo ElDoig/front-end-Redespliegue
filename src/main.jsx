@@ -29,6 +29,7 @@ import './App.css'
 import Registro from './routes/RegistroPage.jsx'
 import Recuperacion from './routes/RecuperacionPage.jsx'
 import { SessionProvider } from './components/Login/Session.jsx'; 
+import OrderList from './pages/user/OrderList.jsx'
 
 
 function Home() {
@@ -116,7 +117,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/user/orders", 
-    element: <App><RequireLogin><OrderDetail /></RequireLogin></App> 
+    element: <App><RequireLogin><OrderList /></RequireLogin></App> 
   },
   {
     path: "/user/profile",

@@ -58,3 +58,24 @@ export const cancelOrder = async (orderId) => {
         throw error; 
     }
 };
+
+export const getUserOrders = async () => {
+    const token = getToken();
+    if (!token) throw new Error("No autenticado. Token no encontrado.");
+
+
+    const response = await fetch(`${API_BASE_URL}/ordenes`, {
+        method: 'GET',
+        headers: {
+            'Authorization': `Bearer ${token}`, 
+            'Content-Type': 'application/json',
+        },
+    });
+
+    if (!response.ok) {
+        throw new Error('Error al obtener el listado de órdenes.');
+    }
+
+    const data = await response.json();
+    return data; 
+};
