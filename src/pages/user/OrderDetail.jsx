@@ -86,8 +86,8 @@ export default function OrderDetail(){
                         <div className="muted" style={{marginTop:6}}>
                             Monto total: 
                             <b>
-                             
-                                S/ {infoOrden.total?.toFixed(2) || '0.00'} 
+                               
+                                S/ {parseFloat(infoOrden.total || 0).toFixed(2)}
                             </b>
                         </div>
                     </div>
@@ -134,10 +134,13 @@ export default function OrderDetail(){
                         <p>Subtotal: S/ {parseFloat(infoOrden.subTotal || 0).toFixed(2) || '0.00'}</p>
                         <p>Envío: S/ 0.00</p>
                         <hr />
-                        <p><b>Total Final: <b>
-
-    S/ {parseFloat(infoOrden.total)?.toFixed(2) || '0.00'} 
-</b></b></p>
+                        <p>
+                            <b>Total Final: </b>
+                            <b>
+                                
+                                S/ {parseFloat(infoOrden.total || 0).toFixed(2)} 
+                            </b>
+                        </p>
                     </div>
                 </div>
 
