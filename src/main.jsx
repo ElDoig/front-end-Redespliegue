@@ -120,6 +120,10 @@ const router = createBrowserRouter([
     element: <App><RequireLogin><OrderList /></RequireLogin></App> 
   },
   {
+    path: "/user/orders/:orderId" ,
+    element: <App><RequireLogin><OrderDetail /></RequireLogin></App>  
+    },
+  {
     path: "/user/profile",
     element: <App><RequireLogin><Profile /></RequireLogin></App>
   },
