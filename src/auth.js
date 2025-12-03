@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { jwtDecode } from 'jwt-decode';
 
 
-const API_BASE_URL = "https://progra-back-end.vercel.app/api"; 
+const API_BASE_URL = "https://progra-back-end.vercel.app"; 
 
 
 export const getCurrentUser = () => {

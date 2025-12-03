@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Login.css"; 
 
-const API_BASE_URL = "https://progra-back-end.vercel.app/api"; 
+const API_BASE_URL = "https://progra-back-end.vercel.app"; 
 
 export default function Registro() {
   const [nombre, setNombre] = useState("");

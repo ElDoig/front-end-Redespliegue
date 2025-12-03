@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom"; // Importar useNavigate
 // import './Recuperacion.css'; // Asegúrate de tener tu archivo CSS
 
-const API_BASE_URL = "https://progra-back-end.vercel.app/api"; 
+const API_BASE_URL = "https://progra-back-end.vercel.app"; 
 
 export default function RecuperarPassword() {
     const [email, setEmail] = useState("");
