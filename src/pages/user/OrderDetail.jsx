@@ -99,23 +99,24 @@ export default function OrderDetail(){
         <tr><th>ID Producto</th><th>Cantidad</th><th>Precio Unitario</th><th>Total Item</th></tr>
     </thead>
     <tbody>
-        {(productos || []).map((item, i) => {
-         
-            const cantidad = parseFloat(item.cantidad || 0);
-            const precio = parseFloat(item.precioUnit || 0);
-            const totalItem = cantidad * precio;
+    {(productos || []).map((item, i) => {
+       
+        const precio = parseFloat(item.precioUnitario || 0);
+    
+        const cantidad = parseFloat(item.cantidad || 0);
 
-            return (
-                <tr key={i}>
-                    <td>{item.idProducto}</td> 
-                    <td>{cantidad}</td>
-                    <td>S/ {precio.toFixed(2)}</td>
-                  
-                    <td>S/ {totalItem.toFixed(2)}</td> 
-                </tr>
-            );
-        })}
-    </tbody>
+        return (
+            <tr key={i}>
+                <td>{item.idProducto}</td>
+                <td>{cantidad}</td>
+            
+                <td>S/ {precio.toFixed(2)}</td>
+             
+                <td>S/ {(cantidad * precio).toFixed(2)}</td> 
+            </tr>
+        );
+    })}
+</tbody>
 </table>
 
               
@@ -130,7 +131,7 @@ export default function OrderDetail(){
                     
                     <div className="card" style={{flex:1}}>
                         <h4>Totales</h4>
-                        <p>Subtotal: S/ {infoOrden.subTotal?.toFixed(2) || '0.00'}</p>
+                        <p>Subtotal: S/ {parseFloat(infoOrden.subTotal || 0).toFixed(2) || '0.00'}</p>
                         <p>Envío: S/ 0.00</p>
                         <hr />
                         <p><b>Total Final: <b>
