@@ -3,7 +3,7 @@ import axios from "axios";
 
 // Creamos la conexión base
 const api = axios.create({
-const API_BASE_URL = "https://progra-back-end.vercel.app/api"; 
+  baseURL:"https://progra-back-end.vercel.app/api" , // La URL de tu Backend real
   headers: {
     "Content-Type": "application/json",
   },
