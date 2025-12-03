@@ -7,7 +7,7 @@ const getCategorias = (productos) => Array.from(new Set(productos.map(p => p.cat
 const getPresentaciones =  (productos) => Array.from(new Set(productos.map(p => p.presentacion)))
 
 const Productos = () => {
-    const baseUrl = "http://localhost:3005/producto"
+    const baseUrl = "https://progra-back-end.vercel.app/producto"
     const [productos, setProductos] = useState([])
     const [showForm, setShowForm ] = useState(false)
     const [search, setSearch ] = useState("")

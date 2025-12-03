@@ -17,7 +17,7 @@ const CategoriaProducto = ({
             try {
                 const token = localStorage.getItem('token')
                 const headers = token ? { Authorization: `Bearer ${token}` } : {}
-                const res = await fetch('http://localhost:3005/producto', { headers })
+                const res = await fetch('https://progra-back-end.vercel.app/producto', { headers })
                 if (!res.ok) throw new Error(`HTTP ${res.status}`)
                 const data = await res.json()
                 const arr = Array.isArray(data) ? data : (data.rows ?? data)
