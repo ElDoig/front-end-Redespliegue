@@ -94,23 +94,29 @@ export default function OrderDetail(){
                 </div>
 
                 <h3 style={{marginTop:10}}>Productos ordenados</h3>
-                <table className="table">
-                    <thead>
-                      
-                        <tr><th>ID Producto</th><th>Cantidad</th><th>Precio Unitario</th><th>Total Item</th></tr>
-                    </thead>
-                    <tbody>
-                     
-                        {(productos || []).map((item, i) => (
-                            <tr key={i}>
-                                <td>{item.idProducto}</td> 
-                                <td>{item.cantidad}</td>
-                                <td>S/ {parseFloat(item.precioUnit)?.toFixed(2)}</td> 
-                                <td>S/ {(parseFloat(item.cantidad) * parseFloat(item.precioUnit))?.toFixed(2) || '0.00'}</td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
+               <table className="table">
+    <thead>
+        <tr><th>ID Producto</th><th>Cantidad</th><th>Precio Unitario</th><th>Total Item</th></tr>
+    </thead>
+    <tbody>
+        {(productos || []).map((item, i) => {
+         
+            const cantidad = parseFloat(item.cantidad || 0);
+            const precio = parseFloat(item.precioUnit || 0);
+            const totalItem = cantidad * precio;
+
+            return (
+                <tr key={i}>
+                    <td>{item.idProducto}</td> 
+                    <td>{cantidad}</td>
+                    <td>S/ {precio.toFixed(2)}</td>
+                  
+                    <td>S/ {totalItem.toFixed(2)}</td> 
+                </tr>
+            );
+        })}
+    </tbody>
+</table>
 
               
                 <div style={{display:'flex', gap:22, marginTop:14}}>
