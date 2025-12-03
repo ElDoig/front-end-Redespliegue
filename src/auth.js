@@ -5,7 +5,7 @@ import { jwtDecode } from 'jwt-decode';
 const API_BASE_URL = "http://localhost:3005"; 
 
 
-const getCurrentUser = () => {
+export const getCurrentUser = () => {
     try {
 
         const token = localStorage.getItem('token'); 
@@ -33,6 +33,44 @@ const getCurrentUser = () => {
 };
 
 
+
+
+export const updateCurrentUser = async (newData) => {
+    
+    const token = localStorage.getItem('token');
+    
+    if (!token) {
+   
+        return { success: false, message: 'No hay sesión activa.' }; 
+    }
+
+    try {
+        const response = await fetch(`${API_BASE_URL}/auth/profile`, {
+            method: 'PUT',
+            headers: { 
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}` 
+            },
+            body: JSON.stringify(newData),
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+     
+            return { success: true, message: data.message || 'Datos actualizados.' };
+        } else {
+      
+            return { success: false, message: data.message || 'Error al actualizar datos en el servidor.' };
+        }
+
+    } catch (error) {
+        console.error("Fallo de conexión al actualizar:", error);
+   
+        return { success: false, message: 'Error de conexión con el servidor.' }; 
+    }
+    
+};
 export function useSession(){
     
 

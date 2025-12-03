@@ -10,6 +10,7 @@ import DashboardAPage from './routes/DashboardAdminPage.jsx'
 import CategoryList from './pages/admin/CategoryList'
 import CategoryForm from './pages/admin/CategoryForm'
 import CategoryDetail from './pages/admin/CategoryDetail'
+import OrderDetail from './pages/user/OrderDetail.jsx'
 
 import Profile from './pages/user/Profile'
 import ChangePassword from './pages/user/ChangePassword.jsx'
@@ -113,10 +114,10 @@ const router = createBrowserRouter([
     path: "/admin/categories/:id",
     element: <App><RequireAdmin><CategoryDetail /></RequireAdmin></App>
   },
-  /*{
-    path: "/user/orders/:orderId",
-    element: <App><RequireLogin><OrderDetail /></RequireLogin></App>
-  },*/
+  {
+    path: "/user/orders", 
+    element: <App><RequireLogin><OrderDetail /></RequireLogin></App> 
+  },
   {
     path: "/user/profile",
     element: <App><RequireLogin><Profile /></RequireLogin></App>

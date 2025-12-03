@@ -55,7 +55,7 @@ export default function NavBar(){
           <>
             <Link to="/user/profile" style={{ marginLeft: 'auto' }}>Mi perfil</Link>
             <Link to="/user/change-password" style={{ marginLeft: '12px' }}>Cambiar contraseña</Link>
-            <Link to="/user/orders/:orderId" style={{ marginLeft: '12px' }}>Mis órdenes</Link>
+            <Link to="/user/orders" style={{ marginLeft: '12px' }}>Mis órdenes</Link>
           </>
         )}
       </div>
