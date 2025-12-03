@@ -5,8 +5,7 @@ import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 
 const DashboardA = () => {
-    const API_BASE_URL = "https://progra-back-end.vercel.app
-    "; 
+    const API_BASE_URL = "https://progra-back-end.vercel.app"; 
     const USUARIO_ENDPOINT = 'auth' // tu endpoint real para usuarios
     const ORDEN_ENDPOINT = 'ordenes' // tu endpoint real para ordenes
 
