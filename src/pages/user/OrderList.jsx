@@ -17,7 +17,7 @@ export default function OrderList() {
                 setError(null);
             } catch (e) {
                 console.error("Error al cargar la lista de órdenes:", e);
-           
+                
                 if (e.message.includes("No autenticado")) {
                     nav('/login');
                 }
@@ -57,9 +57,11 @@ export default function OrderList() {
                             <tr key={order.id}>
                                 <td>#{order.id}</td>
                                 <td>{new Date(order.fecha).toLocaleDateString()}</td>
-                                <td>S/ {order.total?.toFixed(2) || '0.00'}</td>
+                                
+                                
+                                <td>S/ {parseFloat(order.total || 0).toFixed(2)}</td> 
+                                
                                 <td>
-                               
                                     <Link to={`/user/orders/${order.id}`} className="btn-link">Ver Detalle</Link>
                                 </td>
                             </tr>
